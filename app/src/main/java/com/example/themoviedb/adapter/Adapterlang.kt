@@ -8,11 +8,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.themoviedb.databinding.ItemMovieBinding
 import com.example.themoviedb.model.MovieResult
+import com.example.themoviedb.ui.Util
 
 class Adapterlang:PagingDataAdapter<MovieResult,Adapterlang.LangViewholder>(comparator) {
 
 
-    inner class LangViewholder(public val itemMovieBinding: ItemMovieBinding) :
+    inner class LangViewholder( val itemMovieBinding: ItemMovieBinding) :
         RecyclerView.ViewHolder(itemMovieBinding.root) {
 
     }
@@ -33,7 +34,7 @@ class Adapterlang:PagingDataAdapter<MovieResult,Adapterlang.LangViewholder>(comp
         getItem(position).let {
 
             Glide.with(holder.itemMovieBinding.root.context)
-                .load(com.example.themoviedb.ui.Util.posterUrlMake(it?.posterPath))
+                .load(Util.posterUrlMake(it?.posterPath))
                 .into(holder.itemMovieBinding.image)
         }
     }
