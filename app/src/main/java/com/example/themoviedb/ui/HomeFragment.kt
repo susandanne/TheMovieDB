@@ -30,8 +30,9 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-adapterlang= Adapterlang()
+        adapterlang= Adapterlang()
         binding.rv.adapter=adapterlang
+        binding.latestMovieVP.adapter=adapterlang
         viewModel.listdataviewmodel.observe(requireActivity()){
          adapterlang.submitData(lifecycle,it)
         }
