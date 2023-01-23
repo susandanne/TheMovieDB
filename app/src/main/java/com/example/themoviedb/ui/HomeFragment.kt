@@ -11,12 +11,14 @@ import com.example.themoviedb.R
 import com.example.themoviedb.adapter.Adapterlang
 import com.example.themoviedb.databinding.FragmentHomeBinding
 import com.example.themoviedb.viewmodel.ViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
   lateinit var binding: FragmentHomeBinding
   lateinit var adapter: Adapterlang
-  lateinit var  viewModel: ViewModel
+  lateinit var  viewModel:ViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,11 +35,11 @@ class HomeFragment : Fragment() {
         adapter= Adapterlang()
         binding.rv.adapter=adapter
         binding.latestMovieVP.adapter=adapter
-
         viewModel.listdataviewmodel.observe(requireActivity()){
-         adapter.submitData(lifecycle,it)
-
+            adapter.submitData(lifecycle,it)
         }
+
+
 
 
      viewModel.latestmoviesVMLD.observe(viewLifecycleOwner){

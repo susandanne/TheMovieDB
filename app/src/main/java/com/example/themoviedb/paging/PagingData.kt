@@ -20,9 +20,9 @@ class PagingData(private val api: Api) : PagingSource<Int, MovieResult>() {
             val response = api.getdata("en-US",position)
 
             LoadResult.Page(
-                response.movieResults,
-                if (position == 1) null else position - 1,
-                if (position == response.totalPages) null else position + 1
+               data= response.movieResults,
+               prevKey =  if (position == 1) null else position - 1,
+               nextKey =  if (position == response.totalPages) null else position + 1
             )
         } catch (e: java.lang.Exception) {
             LoadResult.Error(e)

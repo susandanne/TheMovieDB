@@ -14,9 +14,9 @@ class Adapterlang:PagingDataAdapter<MovieResult,Adapterlang.LangViewholder>(comp
 
 
     inner class LangViewholder( val itemMovieBinding: ItemMovieBinding) :
-        RecyclerView.ViewHolder(itemMovieBinding.root) {
+        RecyclerView.ViewHolder(itemMovieBinding.root){
 
-    }
+        }
 
     companion object {
         private val comparator = object : DiffUtil.ItemCallback<MovieResult>() {
