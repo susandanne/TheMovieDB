@@ -15,7 +15,7 @@ import com.example.themoviedb.viewmodel.ViewModel
 class HomeFragment : Fragment() {
 
   lateinit var binding: FragmentHomeBinding
-  lateinit var adapterlang: Adapterlang
+  lateinit var adapter: Adapterlang
   lateinit var  viewModel: ViewModel
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -30,11 +30,13 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        adapterlang= Adapterlang()
-        binding.rv.adapter=adapterlang
-        binding.latestMovieVP.adapter=adapterlang
+        adapter= Adapterlang()
+        binding.rv.adapter=adapter
+        binding.latestMovieVP.adapter=adapter
+
         viewModel.listdataviewmodel.observe(requireActivity()){
-         adapterlang.submitData(lifecycle,it)
+         adapter.submitData(lifecycle,it)
+
         }
 
 
@@ -42,6 +44,7 @@ class HomeFragment : Fragment() {
     Glide.with(requireActivity()).load(Util.posterUrlMake(it.poster_path))
         .placeholder(R.drawable.img)
         .into(binding.latestMovie)
+         binding.upcomingTitle.text=it.title
 }
 
 

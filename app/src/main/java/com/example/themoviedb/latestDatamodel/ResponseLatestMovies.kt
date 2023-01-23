@@ -1,8 +1,8 @@
 package com.example.themoviedb.latestDatamodel
 
-data class ResponseLatest(
+data class ResponseLatestMovies(
     val adult: Boolean,
-    val backdrop_path: Any,
+    val backdrop_path: String,
     val belongs_to_collection: Any,
     val budget: Int,
     val genres: List<Any>,
@@ -12,18 +12,18 @@ data class ResponseLatest(
     val original_language: String,
     val original_title: String,
     val overview: String,
-    val popularity: Double,
-    val poster_path: Any,
+    val popularity: Int,
+    val poster_path: String,
     val production_companies: List<Any>,
     val production_countries: List<Any>,
     val release_date: String,
     val revenue: Int,
     val runtime: Int,
-    val spoken_languages: List<Any>,
+    val spoken_languages: List<SpokenLanguage>,
     val status: String,
     val tagline: String,
     val title: String,
     val video: Boolean,
-    val vote_average: Double,
+    val vote_average: Int,
     val vote_count: Int
 )
